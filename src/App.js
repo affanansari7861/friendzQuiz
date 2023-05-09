@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+
 
 function App() {
+  const [dark,setDark]= useState(false)
+  let mode = dark ?'dark':' ';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={mode}>
+      
+    <div className="text-blue-600 flex items-center justify-center h-screen w-screen dark:bg-black">
+      <button onClick={()=> setDark(!dark)} 
+      className="bg-orange-400 p-4 rounded-md font-bold text-white uppercase border-spacing-1  border-slate-500"
+      > change theme</button>
+    </div>
     </div>
   );
 }
