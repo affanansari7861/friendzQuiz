@@ -9,11 +9,12 @@ function App() {
   })
   const slide = useRef();
   let mode = dark ?'dark':' ';
-  return (
-    <main className='w-screen h-screen bg-slate-800 text-center flex flex-col gap-4 items-center justify-center pt-4'>
-      <section className="w-11/12 overflow-hidden  max-w-2xl  h-3/4 bg-slate-900 mx-auto my- rounded- ">
-      <h4 className="text-white h-[10%] bg-slate-900 rounded-t-[6px] font-bold uppercase">friends quiz</h4>
-      <section className=" h-[90%] w-full border-1 border-red-700 relative">
+  return (<>
+    <input id="darkBtn" type="checkbox" className="absolute "/>
+    <main className='w-screen h-screen bg-[var(--background-secondary)] text-center flex flex-col gap-4 items-center justify-center pt-4'>
+      <section className="w-11/12 overflow-hidden rounded-md shadow-black shadow-xl max-w-2xl  h-3/4 bg-slate-900 mx-auto my- rounded- ">
+      <h4 className="text-white h-[20%] justify-center flex items-center bg-slate-900 rounded-md font-bold uppercase">friends quiz</h4>
+      <section className=" h-[80%] w-full  relative">
         <div  ref={slide} className="flex-shrink-0  flex h-full ease-in-out duration-300 w-full absolute top-0 left-0">
           
       <div className="slide">
@@ -33,6 +34,7 @@ function App() {
       </section>
       </section>
     </main>
+  </>
   );
 }
 
