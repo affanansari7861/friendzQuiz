@@ -1,10 +1,16 @@
-import React from 'react'
-
-const Input = ({Id,msg}) => {
+import React, { useContext } from 'react'
+import { FriendContext } from '../App'
+const Input = ({Id,msg,type}) => {
+  const {setFriendInfo}=useContext(FriendContext)
   return (
-    <article className="w-9/12 text-[length:var(--font-size)] max-w-xs relative">            
-    <input type="text" id={Id} required className="peer/input w-full h-10 text-white px-2 bg-inherit border-white border-2 rounded-md focus:outline-0" />
-    <label for={Id} className=" uppercase  translate-y-[-50%]  transition-all ease-in duration-200 top-1/2 left-2 bg-slate-900 text-white absolute peer-focus/input:top-0 peer-valid/input:top-0"> {msg}</label>
+    <article className="w-9/12 text-xs sm:text-sm md:text-base max-w-xs relative ">            
+    <input type={type} onChange={(e)=>{
+      setFriendInfo((oldInfo)=>{
+        return({...oldInfo,[Id]:e.target.value})
+      })
+
+    }} id={Id} required className="peer/input shadow-custom w-full h-10 text-[var(--btn-color)] px-2 bg-inherit border-[var(--btn-color)]  font-bold rounded-md focus:outline-0" />
+    <label for={Id} className=" uppercase  translate-y-[-50%] font-bold transition-custom top-1/2 left-2 bg-transparent text-[var(--font-color)] absolute peer-focus/input:top-[-50%] peer-valid/input:top-[-50%]"> {msg}</label>
     </article>
   )
 }

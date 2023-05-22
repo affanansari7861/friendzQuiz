@@ -3,19 +3,25 @@
 @tailwind utilities;
 :root{
     --font-size:12px;
-    --background-color:rgb(15, 23, 42);
-    --background-secondary:rgb(30,41,59);
+    --btn-color:rgb(138, 8, 251);
+    --background-secondary:white;
+    --font-color:black;
+    --background-primary:white;
   }
   @layer utilities{
-    #darkBtn:checked + main{
-    --background-secondary:white;
-    --background-color:white;
+    #darkBtn:checked ~ *,#darkBtn:checked {
+      --background-primary:rgb(15, 23, 42);
+      --background-secondary:rgb(15,23,42);
+      --font-color:white;
   }
+
 }
 @layer components{
+  p{
+    font-size: var(--font-size);
+  }
 h5,h6{
     font-size: calc(var(--font-size)*1.25);
-
   }
   h4{
     font-size: calc(var(--font-size)*1.25*1.25*1.25);
@@ -29,8 +35,7 @@ h5,h6{
   h1{
     font-size: calc(var(--font-size)*1.25*1.25*1.25*1.25*1.25);
   }
-
     .slide{
-        @apply flex flex-col gap-4 items-center bg-slate-900 justify-evenly  h-full min-w-full  ;
+        @apply flex flex-col gap-4 items-center bg-[var(--background-primary)] justify-evenly  h-full min-w-full  ;
     }
 }
