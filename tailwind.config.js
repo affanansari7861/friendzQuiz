@@ -6,6 +6,9 @@ module.exports = {
   theme: {
     
     extend: {
+      colors:{
+        'trans-white':'rgba(255,255,255,0.2)',
+      },
       boxShadow: {
         '3xl': '0 1px 10px 5px rgba(0, 0, 0, 0.1)',
         'custom':'0 0px 5px 3px rgba(138, 8, 251)',
@@ -16,6 +19,6 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar'),],
 }
 
